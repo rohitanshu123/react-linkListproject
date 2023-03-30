@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        class List {
+            constructor(data) {
+                this.head = {
+                    value: data,
+                    next: null
+                }
+                this.tail = this.head;
+                this.size += 1;
+
+
+            }
+
+            appendNode(Data) {
+                let nodeNode = {
+                    value: Data,
+                    next: null
+                }
+
+                this.tail.next = nodeNode;
+                this.tail = nodeNode;
+                this.size += 1;
+
+            }
+
+            traversing(req) {
+                let currentNode = this.head;
+                let counter = 0;
+                while (counter < req) {
+                    counter++;
+                    currentNode = currentNode.next;
+                }
+
+                return currentNode;
+
+
+            }
+
+            updateNode(index, Data) {
+
+                let newNode = {
+                    value: Data,
+                    next: null
+                }
+
+                let leadNode = this.traversing(index - 1);
+                let nextNode = this.traversing(index + 1);
+
+
+                leadNode.next = newNode;
+                newNode.next = nextNode;
+
+
+
+
+
+
+
+            }
+        }
+
+        let list = new List(10);
+        list.appendNode(20);
+        list.appendNode(100);
+        list.appendNode(40);
+        list.appendNode(50);
+
+        list.updateNode(2, 30);
+
+        console.log(list);
+
+
+    </script>
+</body>
+
+</html>
